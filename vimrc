@@ -1,5 +1,8 @@
 set nocompatible                  " Must come first because it changes other options.
 
+" Make capital W also write to buffer
+command W :w
+
 """""""
 " Webs
 """"""
@@ -35,7 +38,7 @@ colorscheme VibrantInk
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set listchars=tab:>-,extends:>,precedes:<
 set list
-hi SpecialKey ctermfg=233
+hi SpecialKey ctermfg=236
 
 
 " + and - in edit mode to change horizontal split width
@@ -45,15 +48,46 @@ if bufwinnr(1)
 endif
 
 
+
+
 " Disable arrow keys
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-
 " Return clears higlight
 nnoremap <CR> :noh<CR><CR>
+
+
+"start visual mode with previous area reselected
+vmap > >gv
+vmap < <gv
+
+" autocomplete in edit mode using ctrl+j
+" imap <C-J> <C-N>
+
+" insert mode mapping for ctrl hjkl to move
+imap <C-H> <Left>
+imap <C-J> <Down>
+imap <C-K> <Up>
+imap <C-L> <Right>
+
+
+" Fugitive shortcuts
+map <leader>dg :diffget<CR>
+map <leader>dp :diffput<CR>
+
+
+" manually change to working directory
+map <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" Use Ack for Grep
+map <leader>g :Ack 
+
+
+
+
 
 
 " Automatically remove trailing whitespace
@@ -66,11 +100,6 @@ hi DiffChange ctermbg=234 ctermfg=129
 hi Diffadd ctermbg=234 ctermfg=46
 hi Diffdelete ctermbg=234 ctermfg=9
 hi Visual ctermbg=239
-
-
-" Fugitive shortcuts
-map <leader>dg :diffget<CR>
-map <leader>dp :diffput<CR>
 
 
 
@@ -123,12 +152,6 @@ set directory=$HOME/.vim/tmp//.,     " Keep swap files in one location
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " autocmd BufEnter * silent! lcd %:p:h
 
-" manually change to working directory
-map <leader>cd :cd %:p:h<CR>:pwd<CR>
-
-" Use Ack for Grep
-map <leader>g :Ack 
-
 " UNCOMMENT TO USE
 "set tabstop=2                    " Global tab width.
 "set shiftwidth=2                 " And again, related.
@@ -150,14 +173,6 @@ set noexpandtab
 "set shiftround " indent/outdent to nearest tabstops
 "set backspace=indent,eol,start " make backspaces delete sensibly
 "set cinkeys=0{,0},:,0#,!,!^F
-
-
-"start visual mode with previous area reselected
-vmap > >gv
-vmap < <gv
-
-" autocomplete in edit mode using ctrl+j
-imap <C-J> <C-N>
 
 
 set laststatus=2                  " Show the status line all the time
@@ -186,22 +201,11 @@ map <Leader>p :NERDTreeFromBookmark
 " Toggle Tagbar
 map <Leader>= :TagbarToggle<CR>
 
-" Reload files in buffer
-" map <Leader>e :set noconfirm<CR>:bufdo e!<CR>:set confirm<CR>
-
 " Remove all files in buffer
 map <Leader>e :BufOnly<CR>
 
 " Open CommandT
 map <Leader>\ :CommandT<CR>
-
-
-" Uncomment to use Jamis Buck's file opening plugin <<<<<< USE COMMAND-T
-"map <Leader>\ :FuzzyFinderTextMate<CR>
-"map <Leader>t :cd %:p:h<CR>:FuzzyFinderFileWithCurrentBufferDir<CR>
-"map <Leader>b :FuzzyFinderBuffer<CR>
-"let g:fuzzy_match_limit = 150
-"let g:fuzzy_ceiling = 10000
 
 
 " Automatic fold settings for specific files. Uncomment to use.
