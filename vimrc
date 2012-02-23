@@ -38,7 +38,7 @@ colorscheme VibrantInk
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set listchars=tab:>-,extends:>,precedes:<
 set list
-hi SpecialKey ctermfg=236
+hi SpecialKey ctermfg=236 guifg=#333333
 
 
 " + and - in edit mode to change horizontal split width
@@ -80,7 +80,7 @@ map <leader>dp :diffput<CR>
 
 
 " manually change to working directory
-map <leader>cd :cd %:p:h<CR>:pwd<CR>
+map <leader>cd :cd %:p:h<CR>:NERDTree %:p:h<CR>:pwd<CR>
 
 " Use Ack for Grep
 map <leader>g :Ack 
