@@ -3,18 +3,21 @@ set nocompatible                  " Must come first because it changes other opt
 " Make capital W also write to buffer
 command W :w
 
-"""""""
-" Webs
-""""""
-command Finch :cd /Users/dominick/Webs/static/static/projects/finch
-command Sitebuilder :cd /Users/dominick/Webs/webs/webs-war/src/main/webapp/WEB-INF/jsp/SiteBuilder
-command App :cd /Users/dominick/Webs/webs/webs-war/src/main/webapp
 
+if has("gui_running")
+  set guioptions=egmrt
+endif
+
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
+set colorcolumn=80
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set maxmempattern=5000
 augroup TextFiles
 autocmd!
 " Turn off colors
@@ -31,23 +34,24 @@ silent! call pathogen#runtime_append_all_bundles()
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-colorscheme VibrantInk
+"colorscheme VibrantInk
+colorscheme peachpuff
 
 
 "display invis chars
 "set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set listchars=tab:>-,extends:>,precedes:<
 set list
-hi SpecialKey ctermfg=236 guifg=#333333
+hi SpecialKey ctermfg=0 guifg=#333333
 
 
 " + and - in edit mode to change horizontal split width
 if bufwinnr(1)
-	map + <C-W>2>
-	map - <C-W>2<
+  map + <C-W>2>
+  map - <C-W>2<
 endif
 
-
+nnoremap <F3> :NumbersToggle<CR>
 
 
 " Disable arrow keys
@@ -57,22 +61,23 @@ noremap <Left> <nop>
 noremap <Right> <nop>
 
 " Return clears higlight
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR> :echo expand('%:p')<CR><CR>
 
 
 "start visual mode with previous area reselected
 vmap > >gv
 vmap < <gv
 
-" autocomplete in edit mode using ctrl+j
-" imap <C-J> <C-N>
-
 " insert mode mapping for ctrl hjkl to move
 imap <C-H> <Left>
 imap <C-J> <Down>
 imap <C-K> <Up>
 imap <C-L> <Right>
+imap <C-X> <del>
 
+
+"ConqueTerm
+map <leader>x :ConqueTermTab bash<CR> source ~/.websrc && source ~/.myshell<CR>
 
 " Fugitive shortcuts
 map <leader>dg :diffget<CR>
@@ -112,8 +117,6 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-runtime macros/matchit.vim        " Load the matchit plugin.
-
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
@@ -145,58 +148,46 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//.,     " Keep swap files in one location
-
+set directory=$HOME/.vim/tmp//.,  " Keep swap files in one location
 
 " Automatically change the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " autocmd BufEnter * silent! lcd %:p:h
 
-" UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+
+"copy the indentation from the previous line
+set autoindent
+set copyindent
 
 
 "Set tab autoindent
 " http://vim.wikia.com/wiki/Indenting_source_code
-"set cindent
-"set smarttab
 set smartindent "automatically inserts one extra level of indentation in some cases
-set autoindent "copy the indentation from the previous line
-set tabstop=4 "with of tab character
-set shiftwidth=4
-set softtabstop=0
-set noexpandtab
-"set copyindent
+"set smarttab
+"set tabstop=4 "with of tab character
+"set shiftwidth=4
+"set softtabstop=0
+"set noexpandtab
 "set preserveindent
 "set shiftround " indent/outdent to nearest tabstops
-"set backspace=indent,eol,start " make backspaces delete sensibly
 "set cinkeys=0{,0},:,0#,!,!^F
 
+autocmd FileType javascript setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
 set laststatus=2                  " Show the status line all the time
-" Useful status information at bottom of screen  <<<< USE POWERLINE INSTEAD
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 
 " Tab mappings.
-map <leader>tt :tabnew<cr>
-map <leader>te :tabedit
-map <leader>tc :tabclose<cr>
-map <leader>to :tabonly<cr>
-map <leader>tn :tabnext<cr>
-map <leader>tp :tabprevious<cr>
-map <leader>] :tabnext<cr>
-map <leader>[ :tabprevious<cr>
-map <leader>tf :tabfirst<cr>
-map <leader>tl :tablast<cr>
-map <leader>tm :tabmove
+nmap <C-t> :tabnew<CR>
+imap <C-t> <Esc>:tabnew<CR>
+
 
 map <Leader>q :q<cr>
 map <Leader>r :MRU<cr>
 map <Leader>pp :NERDTreeToggle<cr>
-map <Leader>p :NERDTreeFromBookmark 
 
 " Toggle Tagbar
 map <Leader>= :TagbarToggle<CR>
