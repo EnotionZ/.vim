@@ -1,4 +1,76 @@
-set nocompatible                  " Must come first because it changes other options.
+" Make Vim more useful
+set nocompatible
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enhance command-line completion
+set wildmenu
+" Allow cursor keys in insert mode
+set esckeys
+" Allow backspace in insert mode
+set backspace=indent,eol,start
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+" Change mapleader
+"let mapleader=","
+" Centralize backups, swapfiles and undo history
+set backupdir=~/.vim/backups
+set directory=~/.vim/swaps
+
+if exists("&undodir")
+	set undodir=~/.vim/undo
+endif
+
+" Respect modeline in files
+set modeline
+set modelines=4
+" Enable per-directory .vimrc files and disable unsafe commands in them
+set exrc
+set secure
+" Enable line numbers
+set number
+" Enable syntax highlighting
+syntax on
+" Highlight current line
+set cursorline
+
+
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
+
+
+"colorscheme VibrantInk
+colorscheme peachpuff
+
+
+" Show “invisible” characters
+" set listchars=tab:>-,extends:>,precedes:<
+" set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
+highlight SpecialKey ctermfg=black guifg=#000000
+set lcs=tab:▸\ ,trail:·
+set list
+
+" Enable mouse in all modes
+set mouse=a
+" Disable error bells
+set noerrorbells
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+" Show the cursor position
+set ruler
+" Don’t show the intro message when starting Vim
+set shortmess=atI
+
+" Use relative line numbers
+if exists("&relativenumber")
+	set relativenumber
+	au BufReadPost * set relativenumber
+endif
+
 
 " Make capital W also write to buffer
 command W :w
@@ -9,9 +81,11 @@ if has("gui_running")
 endif
 
 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+" highlight anything over 80 column red
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
 set colorcolumn=80
+highlight ColorColumn ctermbg=black
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,18 +105,9 @@ augroup END " TextFiles
 " enable pathongen
 silent! call pathogen#runtime_append_all_bundles()
 
-syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
-"colorscheme VibrantInk
-colorscheme peachpuff
 
-
-"display invis chars
-"set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
-set listchars=tab:>-,extends:>,precedes:<
-set list
-hi SpecialKey ctermfg=0 guifg=#333333
 
 
 " + and - in edit mode to change horizontal split width
@@ -101,10 +166,10 @@ map <leader>g :Ack
 " Color chart http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "highlight Folded ctermfg=186 ctermbg=234
 highlight JSLintError ctermbg=52
-hi DiffChange ctermbg=234 ctermfg=129
-hi Diffadd ctermbg=234 ctermfg=46
-hi Diffdelete ctermbg=234 ctermfg=9
-hi Visual ctermbg=239
+highlight DiffChange ctermbg=234 ctermfg=129
+highlight Diffadd ctermbg=234 ctermfg=46
+highlight Diffdelete ctermbg=234 ctermfg=9
+highlight Visual ctermbg=239
 
 
 
@@ -120,24 +185,17 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
 
-set backspace=indent,eol,start    " Intuitive backspacing.
-
 set hidden                        " Handle multiple buffers better.
 
-set wildmenu                      " Enhanced command line completion.
 set wildmode=list,longest,full    " Complete files like a shell.
 
-set ignorecase                    " Case-insensitive searching.
-set smartcase                     " But case-sensitive if expression contains a capital letter.
-
-set number                        " Show line numbers.
-set ruler                         " Show cursor position.
-set cursorline
 
 set numberwidth=5
 
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
+set ignorecase                    " Case-insensitive searching.
+set smartcase                     " But case-sensitive if expression contains a capital letter.
 
 set wrap                          " Turn on line wrapping.
 set scrolloff=3                   " Show 3 lines of context around the cursor.
@@ -148,15 +206,11 @@ set visualbell                    " No beeping.
 
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
-set directory=$HOME/.vim/tmp//.,  " Keep swap files in one location
 
 " Automatically change the current directory
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 " autocmd BufEnter * silent! lcd %:p:h
 
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
 
 "copy the indentation from the previous line
 set autoindent
@@ -235,7 +289,24 @@ function VaryTabs()
 endfunction
 inoremap <Tab> <C-R>=VaryTabs()<CR>
 
-
+" Automatic commands
+if has("autocmd")
+	" Enable file type detection
+	filetype on
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+endif
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
+" Save a file as root (,W)
+noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 
 
