@@ -1,3 +1,6 @@
+" Use Node.js for JavaScript interpretation
+let $JS_CMD='node'
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -37,6 +40,8 @@ syntax on
 " Highlight current line
 set cursorline
 
+" use 256 colors in vim
+set t_Co=256
 
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
@@ -50,7 +55,7 @@ colorscheme peachpuff
 " Show “invisible” characters
 " set listchars=tab:>-,extends:>,precedes:<
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-highlight SpecialKey ctermfg=black guifg=#000000
+highlight SpecialKey  ctermfg=black
 set lcs=tab:▸\ ,trail:·
 set list
 
@@ -76,16 +81,16 @@ endif
 command W :w
 
 
-if has("gui_running")
-  set guioptions=egmrt
-endif
-
 
 " highlight anything over 80 column red
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
 set colorcolumn=80
 highlight ColorColumn ctermbg=black
+
+if has("gui_running")
+  let g:Powerline_symbols = 'fancy'
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -107,6 +112,7 @@ silent! call pathogen#runtime_append_all_bundles()
 
 filetype plugin indent on         " Turn on file type detection.
 
+autocmd BufNewFile,BufRead *.dust setfiletype=dust syntax=html
 
 
 
@@ -165,7 +171,7 @@ map <leader>g :Ack
 
 " Color chart http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "highlight Folded ctermfg=186 ctermbg=234
-highlight JSLintError ctermbg=52
+highlight JSHintError ctermbg=238
 highlight DiffChange ctermbg=234 ctermfg=129
 highlight Diffadd ctermbg=234 ctermfg=46
 highlight Diffdelete ctermbg=234 ctermfg=9
@@ -229,7 +235,10 @@ set smartindent "automatically inserts one extra level of indentation in some ca
 "set shiftround " indent/outdent to nearest tabstops
 "set cinkeys=0{,0},:,0#,!,!^F
 
-autocmd FileType javascript setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+"au BufRead,BufNewFile *.less filetype=less
+"au BufRead,BufNewFile *.dust filetype=dust
+"autocmd FileType javascript,less,dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+autocmd BufRead,BufNewFile *.js,*.scss,*.sass,*.less,*.dust,*.html,*.jsp setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
 set laststatus=2                  " Show the status line all the time
 
@@ -360,3 +369,5 @@ fun! TempRestoreBinaryForNoeol()
 endfun
 
 augroup END
+
+
