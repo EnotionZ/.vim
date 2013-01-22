@@ -1,5 +1,5 @@
 " Use Node.js for JavaScript interpretation
-let $JS_CMD='node'
+" let $JS_CMD='node'
 
 " Make Vim more useful
 set nocompatible
@@ -40,6 +40,9 @@ syntax on
 " Highlight current line
 set cursorline
 
+" number of pixel lines to use between characters
+set lsp=4
+
 " use 256 colors in vim
 set t_Co=256
 
@@ -76,6 +79,7 @@ if exists("&relativenumber")
 	au BufReadPost * set relativenumber
 endif
 
+inoremap jj <ESC>
 
 " Make capital W also write to buffer
 command W :w
@@ -112,7 +116,6 @@ silent! call pathogen#runtime_append_all_bundles()
 
 filetype plugin indent on         " Turn on file type detection.
 
-autocmd BufNewFile,BufRead *.dust setfiletype=dust syntax=html
 
 
 
@@ -147,16 +150,17 @@ imap <C-L> <Right>
 imap <C-X> <del>
 
 
-"ConqueTerm
-map <leader>x :ConqueTermTab bash<CR> source ~/.websrc && source ~/.myshell<CR>
-
 " Fugitive shortcuts
+map <leader>s :Gstatus<CR>
 map <leader>dg :diffget<CR>
 map <leader>dp :diffput<CR>
 
 
 " manually change to working directory
 map <leader>cd :cd %:p:h<CR>:NERDTree %:p:h<CR>:pwd<CR>
+map <leader>[ :NERDTree %:p:h<CR>
+map <leader>] :NERDTreeClose<CR>
+map <Leader>nt :NERDTreeToggle<cr>
 
 " Use Ack for Grep
 map <leader>g :Ack 
@@ -235,10 +239,10 @@ set smartindent "automatically inserts one extra level of indentation in some ca
 "set shiftround " indent/outdent to nearest tabstops
 "set cinkeys=0{,0},:,0#,!,!^F
 
-"au BufRead,BufNewFile *.less filetype=less
-"au BufRead,BufNewFile *.dust filetype=dust
-"autocmd FileType javascript,less,dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
-autocmd BufRead,BufNewFile *.js,*.scss,*.sass,*.less,*.dust,*.html,*.jsp setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+autocmd BufRead,BufNewFile *.less setfiletype=less
+autocmd BufNewFile,BufRead *.dust setfiletype=dust syntax=html
+autocmd FileType javascript,less,dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+autocmd BufRead,BufNewFile *.html,*.jsp,*.dust,*.less setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
 set laststatus=2                  " Show the status line all the time
 
@@ -250,7 +254,6 @@ imap <C-t> <Esc>:tabnew<CR>
 
 map <Leader>q :q<cr>
 map <Leader>r :MRU<cr>
-map <Leader>pp :NERDTreeToggle<cr>
 
 " Toggle Tagbar
 map <Leader>= :TagbarToggle<CR>
@@ -371,3 +374,6 @@ endfun
 augroup END
 
 
+" force reloading of filetype
+filetype off
+filetype on
