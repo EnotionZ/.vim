@@ -23,6 +23,12 @@ set encoding=utf-8 nobomb
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 
+" copy paste
+nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <F2> :.w !pbcopy<CR><CR>
+vmap <F2> :w !pbcopy<CR><CR>
+
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
@@ -279,6 +285,11 @@ set foldlevel=1
 
 " Reads json like JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
+
+
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_less_checkers=['less-lint']
 
 
 
