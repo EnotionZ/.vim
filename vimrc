@@ -24,10 +24,9 @@ set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
 
 " copy paste
-nmap <F1> :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-imap <F1> <Esc>:set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <F2> :.w !pbcopy<CR><CR>
-vmap <F2> :w !pbcopy<CR><CR>
+nmap <leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
+nmap <leader>x :.w !pbcopy<CR><CR>
+vmap <leader>x :w !pbcopy<CR><CR>
 
 if exists("&undodir")
 	set undodir=~/.vim/undo
