@@ -4,9 +4,6 @@
 [submodule "bundle/dustjs.vim"]
 	path = bundle/dustjs.vim
 	url = git://github.com/jimmyhchan/dustjs.vim.git
-[submodule "bundle/jshint.vim"]
-	path = bundle/jshint.vim
-	url = git://github.com/wookiehangover/jshint.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
