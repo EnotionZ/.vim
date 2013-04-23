@@ -51,10 +51,6 @@ set lsp=4
 " use 256 colors in vim
 set t_Co=256
 
-set tabstop=2                    " Global tab width.
-set shiftwidth=2                 " And again, related.
-set expandtab                    " Use spaces instead of tabs
-
 
 "colorscheme VibrantInk
 colorscheme peachpuff
@@ -232,14 +228,19 @@ set autoindent
 set copyindent
 
 
+"set tabstop=2                    " Global tab width.
+"set shiftwidth=2                 " And again, related.
+"set expandtab                    " Use spaces instead of tabs
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+set noexpandtab
+
 "Set tab autoindent
 " http://vim.wikia.com/wiki/Indenting_source_code
 set smartindent "automatically inserts one extra level of indentation in some cases
 "set smarttab
-"set tabstop=4 "with of tab character
-"set shiftwidth=4
-"set softtabstop=0
-"set noexpandtab
 "set preserveindent
 "set shiftround " indent/outdent to nearest tabstops
 "set cinkeys=0{,0},:,0#,!,!^F
