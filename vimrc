@@ -292,6 +292,7 @@ let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_less_checkers=['less-lint']
 
 
+let NERDTreeIgnore = ['\.pyc$']
 
 
 " make tab do tabs at beginning and spaces elsewhere
