@@ -64,7 +64,7 @@ set lcs=tab:▸\ ,trail:·
 set list
 
 " Enable mouse in all modes
-set mouse=a
+set mouse=i
 " Disable error bells
 set noerrorbells
 " Don’t reset cursor to start of line when moving around.
@@ -177,6 +177,9 @@ map <Leader>nt :NERDTreeToggle<cr>
 
 " Use Ack for Grep
 map <leader>g :Ack 
+
+" ignore command-t
+set wildignore+=node_modules,bower_components
 
 
 
@@ -323,7 +326,7 @@ function VaryTabs()
     endif
   endif
 endfunction
-inoremap <Tab> <C-R>=VaryTabs()<CR>
+"inoremap <Tab> <C-R>=VaryTabs()<CR>
 
 " Automatic commands
 if has("autocmd")
