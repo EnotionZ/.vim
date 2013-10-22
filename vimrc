@@ -63,7 +63,7 @@ highlight SpecialKey  ctermfg=black
 set lcs=tab:▸\ ,trail:·
 set list
 
-" Enable mouse in all modes
+" Enable mouse in insert mode
 set mouse=i
 " Disable error bells
 set noerrorbells
