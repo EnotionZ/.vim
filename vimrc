@@ -179,7 +179,7 @@ map <Leader>nt :NERDTreeToggle<cr>
 map <leader>g :Ack 
 
 " ignore command-t
-set wildignore+=node_modules,bower_components
+set wildignore+=node_modules,bower_components,public/components
 
 
 
