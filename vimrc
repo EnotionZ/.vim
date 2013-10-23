@@ -25,7 +25,6 @@ set directory=~/.vim/swaps
 
 " copy paste
 nmap <leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
-nmap <leader>x :.w !pbcopy<CR><CR>
 vmap <leader>x :w !pbcopy<CR><CR>
 
 if exists("&undodir")
