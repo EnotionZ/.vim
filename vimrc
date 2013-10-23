@@ -82,8 +82,8 @@ endif
 
 inoremap jj <ESC>
 
-" Make capital W also write to buffer
-command W :w
+" Make capital W also write to read-only buffer
+command W :w !sudo tee % > /dev/null<CR>
 
 
 
@@ -344,8 +344,6 @@ function! StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
 
 
 
