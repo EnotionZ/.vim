@@ -310,40 +310,18 @@ let g:syntastic_less_checkers=['less-lint']
 let NERDTreeIgnore = ['\.pyc$']
 
 
-" make tab do tabs at beginning and spaces elsewhere
-function VaryTabs()
-  if &expandtab
-    return "\<Tab>"
-  else
-    let nonwhite = matchend(getline('.'),'\S')
-    if nonwhite < 0 || col('.') <= nonwhite
-      return "\<Tab>"
-    else
-      let pos = virtcol('.')
-      let num = pos + &tabstop
-      let num = num - (num % &tabstop) - pos +1
-      return repeat(" ",num)
-    endif
-  endif
-endfunction
-"inoremap <Tab> <C-R>=VaryTabs()<CR>
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-endif
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
+function! s:StripWhitespace()
 	let save_cursor = getpos(".")
 	let old_query = getreg('/')
 	:%s/\s\+$//e
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
+" Strip trailing whitespace (/ss)
 noremap <leader>ss :call StripWhitespace()<CR>
+" Strip trailing whitespace (on write)
+autocmd BufWritePre * call <SID>StripWhitespace()
 
 
 
