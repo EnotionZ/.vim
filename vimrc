@@ -52,7 +52,7 @@ set t_Co=256
 
 
 "colorscheme VibrantInk
-colorscheme peachpuff
+colorscheme torte
 
 
 " Show “invisible” characters
@@ -175,10 +175,7 @@ map <leader>] :NERDTreeClose<CR>
 map <Leader>nt :NERDTreeToggle<cr>
 
 " Use Ack for Grep
-map <leader>g :Ack 
-
-" ignore command-t
-set wildignore+=node_modules,bower_components,public/components
+map <leader>g :Ack
 
 
 
@@ -273,16 +270,20 @@ imap <C-t> <Esc>:tabnew<CR>
 
 
 map <Leader>q :q<cr>
-map <Leader>r :MRU<cr>
+
+" Open CtrlP
+map <Leader>\ :CtrlP<CR>
+map <Leader>o :CtrlPMixed<CR>
+map <Leader>r :CtrlPMRU<cr>
+
+" ignore
+set wildignore+=node_modules,bower_components,*/public/components/*
 
 " Toggle Tagbar
 map <Leader>= :TagbarToggle<CR>
 
 " Remove all files in buffer
 map <Leader>e :BufOnly<CR>
-
-" Open CommandT
-map <Leader>\ :CommandT<CR>
 
 
 " Automatic fold settings for specific files. Uncomment to use.
@@ -337,7 +338,7 @@ augroup automatic_noeol
   au BufWritePre  * call <SID>TempSetBinaryForNoeol()
   au BufWritePost * call <SID>TempRestoreBinaryForNoeol()
 augroup END
- 
+
 function! s:TempSetBinaryForNoeol()
   let s:save_binary = &binary
   if ! &eol && ! &binary
@@ -357,7 +358,7 @@ function! s:TempSetBinaryForNoeol()
     endif
   endif
 endfunction
- 
+
 function! s:TempRestoreBinaryForNoeol()
   if ! &eol && ! s:save_binary
     if &ff == "dos"
