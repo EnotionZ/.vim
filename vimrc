@@ -1,3 +1,6 @@
+" enable pathongen
+silent! call pathogen#runtime_append_all_bundles()
+
 " Use Node.js for JavaScript interpretation
 " let $JS_CMD='node'
 
@@ -52,7 +55,7 @@ set t_Co=256
 
 
 "colorscheme VibrantInk
-colorscheme torte
+colorscheme toothpik
 
 
 " Show “invisible” characters
@@ -122,9 +125,6 @@ autocmd BufEnter *.txt syntax off
 augroup END " TextFiles
 
 
-
-" enable pathongen
-silent! call pathogen#runtime_append_all_bundles()
 
 filetype plugin indent on         " Turn on file type detection.
 
