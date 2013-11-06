@@ -277,7 +277,7 @@ map <Leader>o :CtrlPMixed<CR>
 map <Leader>r :CtrlPMRU<cr>
 
 " ignore
-set wildignore+=node_modules,bower_components,*/public/components/*
+set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
 
 " Toggle Tagbar
 map <Leader>= :TagbarToggle<CR>
@@ -307,7 +307,7 @@ let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_less_checkers=['less-lint']
 
 
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
 
 
 
