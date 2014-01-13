@@ -94,6 +94,7 @@ command W :w !sudo tee % > /dev/null<CR>
 " match OverLength /\%81v.\+/
 set colorcolumn=80
 highlight ColorColumn ctermbg=black
+highlight SignColumn ctermbg=black
 
 
 "" airline settings
