@@ -85,7 +85,9 @@ endif
 inoremap jj <ESC>
 
 " Make capital W also write to read-only buffer
-command W :w !sudo tee % > /dev/null<CR>
+if !exists(":W")
+	command W :w !sudo tee % > /dev/null<CR>
+endif
 
 
 
