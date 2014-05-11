@@ -286,7 +286,7 @@ set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
 map <Leader>= :TagbarToggle<CR>
 
 " Remove all files in buffer
-map <Leader>e :BufOnly<CR>
+map <Leader>e :BufOnly<CR> :tabo<CR>
 
 
 " Automatic fold settings for specific files. Uncomment to use.
