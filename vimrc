@@ -275,8 +275,9 @@ imap <C-t> <Esc>:tabnew<CR>
 map <Leader>q :q<cr>
 
 " Open CtrlP
-map <Leader>\ :CtrlP<CR>
-map <Leader>o :CtrlPMixed<CR>
+map <Leader>\ :CtrlPMixed<CR>
+map <Leader>p :CtrlP<CR>
+map <Leader>o :CtrlPBuffer<CR>
 map <Leader>r :CtrlPMRU<cr>
 
 " ignore
