@@ -62,7 +62,7 @@ colorscheme toothpik
 " set listchars=tab:>-,extends:>,precedes:<
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 highlight SpecialKey  ctermfg=black
-set lcs=tab:▸\ ,trail:·
+set lcs=tab:.\ ,trail:·
 set list
 
 " Enable mouse in insert mode
