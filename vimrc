@@ -106,7 +106,7 @@ let g:airline_right_sep=''
 " remove unused modes
 let g:airline_enable_fugitive=0
 let g:airline_enable_syntastic=0
-let g:airline_theme='tomorrow'
+let g:airline_theme='kolor'
 " set second section to filename
 let g:airline_section_b="%f"
 " empty third and fourth sections

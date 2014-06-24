@@ -67,7 +67,7 @@ call s:ColorDictParser({
 	\ , 'WarningMsg'                  : [    202,     '',           'bold',      'ff5f00',        '',           'bold']
 	\ , 'ErrorMsg'                    : [    196,     '',           'bold',      'ff0000',        '',           'bold']
 	\
-	\ , 'Comment'                     : [      4,     '',               '',      '767676',  '121212',               '']
+	\ , 'Comment'                     : [      4,     '',               '',      '767676',  '202020',               '']
 	\ , 'vimCommentTitleLeader'       : [    250,     '',               '',      'bcbcbc',  '121212',               '']
 	\ , 'vimCommentTitle'             : [    250,     '',               '',      'bcbcbc',  '121212',               '']
 	\ , 'vimCommentString'            : [    245,     '',               '',      '8a8a8a',  '121212',               '']
@@ -80,8 +80,8 @@ call s:ColorDictParser({
 	\
 	\ , 'SpellCap'                    : [    231,     31,           'bold',      'ffffff',  '0087af',           'bold']
 	\
-	\ , 'SpecialKey'                  : [    239,     '',               '',      '4e4e4e',        '',               '']
-	\ , 'NonText'                     : [     88,     '',               '',      '870000',        '',               '']
+	\ , 'SpecialKey'                  : [    239,     '',               '',      '222222',        '',               '']
+	\ , 'NonText'                     : [     88,     '',               '',      '123456',        '',               '']
 	\ , 'MatchParen'                  : [    231,     25,           'bold',      'ffffff',  '005faf',           'bold']
 	\
 	\ , 'Constant'                    : [    137,     '',           'bold',      'af875f',        '',           'bold']
