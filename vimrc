@@ -108,12 +108,12 @@ let g:airline_enable_fugitive=0
 let g:airline_enable_syntastic=0
 let g:airline_theme='kolor'
 " set second section to filename
-let g:airline_section_b="%f"
+"let g:airline_section_b="%f"
 " empty third and fourth sections
 let g:airline_section_c=""
-let g:airline_section_x=""
+"let g:airline_section_x=""
 " put filetype in fifth section
-let g:airline_section_y="%Y"
+let g:airline_section_y="%f"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -330,3 +330,7 @@ autocmd BufWritePre * call <SID>StripWhitespace()
 " force reloading of filetype
 filetype off
 filetype on
+
+" fast autocompletion
+" http://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
+set foldmethod=manual
