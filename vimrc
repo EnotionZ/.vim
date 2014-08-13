@@ -195,7 +195,6 @@ highlight JSHintError ctermbg=238
 highlight DiffChange ctermbg=234 ctermfg=129
 highlight Diffadd ctermbg=234 ctermfg=46
 highlight Diffdelete ctermbg=234 ctermfg=9
-highlight Visual ctermbg=239
 
 
 
