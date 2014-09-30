@@ -277,9 +277,10 @@ map <Leader>q :q<cr>
 
 " Open CtrlP
 map <Leader>o :CtrlPMixed<CR>
-map <Leader>\ :CtrlP<CR>
-"map <Leader>o :CtrlPBuffer<CR>
+map <Leader>\ :let g:ctrlp_working_path_mode = 'c' <bar> CtrlP<CR>
+map <Leader><bar> :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
 map <Leader>r :CtrlPMRU<cr>
+"map <Leader>o :CtrlPBuffer<CR>
 
 " ignore
 set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
