@@ -273,7 +273,7 @@ nmap <C-t> :tabnew<CR>
 imap <C-t> <Esc>:tabnew<CR>
 
 
-map <Leader>q :q<cr>
+map <Leader>q :NERDTreeClose<cr>:q<cr>
 
 " Open CtrlP
 map <Leader>o :CtrlPMixed<CR>
