@@ -285,9 +285,6 @@ map <Leader>r :CtrlPMRU<cr>
 " ignore
 set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
 
-" Toggle Tagbar
-map <Leader>= :TagbarToggle<CR>
-
 " Remove all files in buffer
 map <Leader>e :BufOnly<CR> :tabo<CR>
 
