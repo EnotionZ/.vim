@@ -308,7 +308,7 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_less_checkers=['less-lint']
-let JSHintUpdateWriteOnly=1
+" let JSHintUpdateWriteOnly=1
 
 
 let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
