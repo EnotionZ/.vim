@@ -1,9 +1,6 @@
 [submodule "bundle/ack.vim"]
 	path = bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "bundle/dustjs.vim"]
-	path = bundle/dustjs.vim
-	url = git://github.com/jimmyhchan/dustjs.vim.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -67,3 +64,6 @@
 [submodule "bundle/vim-golang"]
 	path = bundle/vim-golang
 	url = git@github.com:jnwhiteh/vim-golang.git
+[submodule "bundle/dustjs.vim"]
+	path = bundle/dustjs.vim
+	url = git://github.com/jimmyhchan/dustjs.vim.git
