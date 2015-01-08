@@ -277,8 +277,8 @@ map <Leader>q :q<cr>
 
 " Open CtrlP
 map <Leader>o :CtrlPMixed<CR>
-map <Leader>\ :let g:ctrlp_working_path_mode = 'c' <bar> CtrlP<CR>
-map <Leader><bar> :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
+map <Leader><bar> :let g:ctrlp_working_path_mode = 'c' <bar> CtrlP<CR>
+map <Leader>\ :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
 map <Leader>r :CtrlPMRU<cr>
 "map <Leader>o :CtrlPBuffer<CR>
 
@@ -311,6 +311,7 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_less_checkers=['less-lint']
+let JSHintUpdateWriteOnly=1
 
 
 let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
