@@ -42,8 +42,11 @@ set exrc
 set secure
 " Enable line numbers
 set number
+
 " Enable syntax highlighting
-syntax on
+syntax off
+map <F9> :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif<CR>
+
 " Highlight current line
 set cursorline
 
@@ -61,7 +64,6 @@ colorscheme distinguished
 " Show “invisible” characters
 " set listchars=tab:>-,extends:>,precedes:<
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-highlight SpecialKey  ctermfg=black
 set lcs=tab:.\ ,trail:·
 set list
 
