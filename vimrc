@@ -44,7 +44,7 @@ set secure
 set number
 
 " Enable syntax highlighting
-syntax off
+syntax on
 map <F9> :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif<CR>
 
 " Highlight current line
