@@ -1,5 +1,35 @@
-" enable pathongen
-silent! call pathogen#runtime_append_all_bundles()
+" https://github.com/junegunn/vim-plug
+" PlugInstall
+" PlugUpdate
+" PlugClean
+" PlugUpgrade
+" PlugStatus
+call plug#begin('~/.vim/plugged')
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'myusuf3/numbers.vim'
+Plug 'ervandew/supertab'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-haml'
+Plug 'nono/vim-handlebars'
+Plug 'tpope/vim-rails'
+Plug 'kchmck/vim-coffee-script'
+Plug 'wookiehangover/jshint.vim'
+Plug 'tpope/vim-markdown'
+Plug 'bling/vim-airline'
+Plug 'ap/vim-css-color'
+Plug 'kien/ctrlp.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'groenewege/vim-less'
+Plug 'airblade/vim-gitgutter'
+Plug 'jnwhiteh/vim-golang'
+Plug 'jimmyhchan/dustjs.vim'
+Plug 'flazz/vim-colorschemes'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+call plug#end()
 
 " Use Node.js for JavaScript interpretation
 " let $JS_CMD='node'
