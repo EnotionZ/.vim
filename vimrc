@@ -135,18 +135,16 @@ highlight SignColumn ctermbg=black
 " remove separators
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-" remove unused modes
-let g:airline_enable_fugitive=0
-let g:airline_enable_syntastic=0
-let g:airline_theme='kolor'
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+"let g:airline_theme='kolor'
 " set second section to filename
 "let g:airline_section_b="%f"
 " empty third and fourth sections
-let g:airline_section_c=""
 "let g:airline_section_x=""
-" put filetype in fifth section
-let g:airline_section_y="%f"
-
+let g:airline_section_c="%f"
+let g:airline_section_y=""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text files
@@ -291,12 +289,6 @@ set smartindent "automatically inserts one extra level of indentation in some ca
 "set shiftround " indent/outdent to nearest tabstops
 "set cinkeys=0{,0},:,0#,!,!^F
 
-autocmd BufRead,BufNewFile *.less setfiletype=less
-autocmd BufNewFile,BufRead *.dust setfiletype=dust syntax=html
-autocmd FileType javascript,less,dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
-autocmd BufRead,BufNewFile *.html,*.jsp,*.dust,*.less setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
-au BufRead,BufNewFile *.go set filetype=go
-
 set laststatus=2                  " Show the status line all the time
 
 
@@ -353,9 +345,9 @@ function! s:StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 " Strip trailing whitespace (/ss)
-noremap <leader>ss :call StripWhitespace()<CR>
+noremap <leader>ss :call <SID>StripWhitespace()<CR>
 " Strip trailing whitespace (on write)
-autocmd BufWritePre * call <SID>StripWhitespace()
+" autocmd BufWritePre * call <SID>StripWhitespace()
 
 
 " force reloading of filetype
