@@ -26,6 +26,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
+Plug 'schickling/vim-bufonly'
+Plug 'junegunn/seoul256.vim'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -90,7 +92,9 @@ set t_Co=256
 
 
 "colorscheme VibrantInk
-colorscheme distinguished
+"colorscheme distinguished
+colorscheme seoul256
+hi Normal ctermbg=0
 
 
 " Show “invisible” characters
