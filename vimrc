@@ -27,6 +27,7 @@ Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
 
+Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
 
@@ -58,6 +59,8 @@ set directory=~/.vim/swaps
 " copy paste
 nmap <leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 vmap <leader>x :w !pbcopy<CR><CR>
+
+vmap <Enter> <Plug>(EasyAlign)
 
 if exists("&undodir")
 	set undodir=~/.vim/undo
