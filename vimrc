@@ -95,6 +95,7 @@ set t_Co=256
 "colorscheme distinguished
 colorscheme seoul256
 hi Normal ctermbg=0
+hi LineNr ctermbg=233
 
 
 " Show “invisible” characters
