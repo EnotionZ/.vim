@@ -187,8 +187,8 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" Return clears higlight
-nnoremap <CR> :noh<CR> :echo expand('%:p')<CR><CR>
+" Return shows file path
+nnoremap <CR> :echo expand('%:p')<CR><CR>
 
 
 "start visual mode with previous area reselected
@@ -202,6 +202,8 @@ imap <C-K> <Up>
 imap <C-L> <Right>
 imap <C-X> <del>
 
+nmap <c-l> :noh<CR>
+imap <c-l> <Esc>:noh<CR>o
 
 " Fugitive shortcuts
 map <leader>s :Gstatus<CR>
