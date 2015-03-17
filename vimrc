@@ -90,12 +90,11 @@ set lsp=4
 " use 256 colors in vim
 set t_Co=256
 
-
-"colorscheme VibrantInk
-"colorscheme distinguished
+let g:seoul256_background = 233
+if has("gui_running")
+	let g:seoul256_background = 235
+endif
 colorscheme seoul256
-hi Normal ctermbg=0
-hi LineNr ctermbg=233
 
 
 " Show “invisible” characters
