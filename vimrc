@@ -207,6 +207,7 @@ imap <c-l> <Esc>:noh<CR>o
 
 " Fugitive shortcuts
 map <leader>s :Gstatus<CR>
+map <leader>d :Gdiff<CR>
 map <leader>dg :diffget<CR>
 map <leader>dp :diffput<CR>
 
