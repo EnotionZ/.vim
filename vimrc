@@ -136,6 +136,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=black
 highlight SignColumn ctermbg=black
 
+let g:gitgutter_max_signs=2500
 
 "" airline settings
 " remove separators
@@ -224,9 +225,6 @@ map <leader>g :Ack
 
 
 
-
-" Automatically remove trailing whitespace
-" autocmd BufWritePre * :%s/\s\+$//e
 
 " Color chart http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "highlight Folded ctermfg=186 ctermbg=234
@@ -341,7 +339,7 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 let g:syntastic_java_checkers=['javac']
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_less_checkers=['less-lint']
-" let JSHintUpdateWriteOnly=1
+let JSHintUpdateWriteOnly=1
 
 
 let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
@@ -354,9 +352,12 @@ function! s:StripWhitespace()
 	call setreg('/', old_query)
 endfunction
 " Strip trailing whitespace (/ss)
-noremap <leader>ss :call <SID>StripWhitespace()<CR>
+noremap <leader>ws :call <SID>StripWhitespace()<CR>
 " Strip trailing whitespace (on write)
 " autocmd BufWritePre * call <SID>StripWhitespace()
+
+" Automatically remove trailing whitespace
+" autocmd BufWritePre * :%s/\s\+$//e
 
 
 " force reloading of filetype
