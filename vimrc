@@ -303,9 +303,9 @@ imap <C-t> <Esc>:tabnew<CR>
 map <Leader>q :NERDTreeClose<cr>:q<cr>
 
 " Open CtrlP
-map <Leader>o :CtrlPMixed<CR>
 map <Leader><bar> :let g:ctrlp_working_path_mode = 'c' <bar> CtrlP<CR>
-map <Leader>\ :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
+map <Leader>\ :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlPMixed<CR>
+map <Leader>o :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
 map <Leader>r :CtrlPMRU<cr>
 "map <Leader>o :CtrlPBuffer<CR>
 
