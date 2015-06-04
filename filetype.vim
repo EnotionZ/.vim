@@ -11,3 +11,16 @@ au BufNewFile,BufRead *.markdown,*.md,*.mdown,*.mkd,*.mkdn
       \ else |
       \   setf markdown |
       \ endif
+
+" Automatic fold settings for specific files. Uncomment to use.
+autocmd FileType python setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2
+autocmd FileType ruby setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2
+autocmd FileType css  setlocal foldmethod=indent expandtab shiftwidth=4 tabstop=4
+autocmd FileType less  setlocal foldmethod=indent expandtab shiftwidth=4 tabstop=4
+autocmd FileType scss  setlocal foldmethod=indent expandtab shiftwidth=4 tabstop=4
+
+" Autocompletion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS

@@ -28,6 +28,7 @@ Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'schickling/vim-bufonly'
 Plug 'junegunn/seoul256.vim'
+Plug 'vim-ruby/vim-ruby'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -238,11 +239,6 @@ highlight Diffdelete ctermbg=234 ctermfg=9
 
 
 
-" Autocompletion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 set showcmd                       " Display incomplete commands.
 set showmode                      " Display the mode you're in.
@@ -319,11 +315,6 @@ set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
 " Remove all files in buffer
 map <Leader>e :BufOnly<CR> :tabo<CR>
 
-
-" Automatic fold settings for specific files. Uncomment to use.
-autocmd FileType ruby setlocal foldmethod=syntax
-autocmd FileType css  setlocal foldmethod=indent shiftwidth=3 tabstop=3
-autocmd FileType less  setlocal foldmethod=indent shiftwidth=3 tabstop=3
 
 " folding settings
 set foldmethod=syntax
