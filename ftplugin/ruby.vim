@@ -1,1 +1,1 @@
-nmap <Leader>r :! clear; ruby %<CR>
+nmap <Leader>r :! clear; ~/.rbenv/shims/ruby %<CR>

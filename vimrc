@@ -29,6 +29,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'schickling/vim-bufonly'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'suan/vim-instant-markdown'
 
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -304,8 +305,8 @@ map <Leader>q :NERDTreeClose<cr>:q<cr>
 
 " Open CtrlP
 map <Leader><bar> :let g:ctrlp_working_path_mode = 'c' <bar> CtrlP<CR>
-map <Leader>\ :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlPMixed<CR>
-map <Leader>o :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
+map <Leader>\ :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlP<CR>
+map <Leader>o :let g:ctrlp_working_path_mode = 'ra' <bar> CtrlPMixed<CR>
 map <Leader>r :CtrlPMRU<cr>
 "map <Leader>o :CtrlPBuffer<CR>
 
