@@ -7,7 +7,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'myusuf3/numbers.vim'
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-fugitive'
@@ -31,6 +30,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 
+Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
@@ -76,8 +76,6 @@ set modelines=4
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
-" Enable line numbers
-set number
 
 " Enable syntax highlighting
 syntax on
@@ -116,10 +114,12 @@ set ruler
 " Don’t show the intro message when starting Vim
 set shortmess=atI
 
-" Use relative line numbers
+" Enable line numbers & relative line numbers
 if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
+	au InsertEnter * :set number
+	au InsertLeave * :set relativenumber
 endif
 
 inoremap jj <ESC>
