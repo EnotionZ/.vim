@@ -30,6 +30,7 @@ Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 
+Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
@@ -69,6 +70,9 @@ vmap <Enter> <Plug>(EasyAlign)
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
+
+autocmd User GoyoEnter Limelight
+autocmd User GoyoLeave Limelight!
 
 " Respect modeline in files
 set modeline
