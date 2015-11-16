@@ -29,6 +29,7 @@ Plug 'schickling/vim-bufonly'
 Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
+Plug 'nelstrom/vim-visual-star-search'
 
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
