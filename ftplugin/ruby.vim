@@ -1,1 +1,1 @@
-nmap <Leader>r :! clear; ~/.rbenv/shims/ruby %<CR>
+nmap <Localleader>f :! clear; ~/.rbenv/shims/ruby %<CR>
