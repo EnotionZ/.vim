@@ -62,6 +62,7 @@ set encoding=utf-8 nobomb
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
+noremap <leader>sw :!find ~/.vim/swaps -name "*.sw*" -exec rm {} \;<CR>
 
 " copy paste
 nmap <leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
@@ -124,8 +125,8 @@ set shortmess=atI
 if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
-	au InsertEnter * :set number
-	au InsertLeave * :set relativenumber
+	au InsertEnter * set number
+	au InsertLeave * set relativenumber
 endif
 
 inoremap jj <ESC>
@@ -144,6 +145,7 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=black
 highlight SignColumn ctermbg=black
 
+" [c prev, ]c next
 let g:gitgutter_max_signs=2500
 
 "" airline settings
@@ -190,10 +192,10 @@ nnoremap <F3> :NumbersToggle<CR>
 
 
 " Disable arrow keys
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
+noremap <Up> gk
+noremap <Down> gj
+noremap <Left> h
+noremap <Right> l
 
 " Return shows file path
 nnoremap <CR> :echo expand('%:p')<CR><CR>
@@ -353,9 +355,6 @@ endfunction
 noremap <leader>ws :call <SID>StripWhitespace()<CR>
 " Strip trailing whitespace (on write)
 " autocmd BufWritePre * call <SID>StripWhitespace()
-
-" Automatically remove trailing whitespace
-" autocmd BufWritePre * :%s/\s\+$//e
 
 
 " force reloading of filetype
