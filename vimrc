@@ -7,6 +7,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-fugitive'
