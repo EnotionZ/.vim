@@ -226,8 +226,8 @@ map <leader>dp :diffput<CR>
 " manually change to working directory
 map <leader>cd :cd %:p:h<CR>:NERDTree %:p:h<CR>:pwd<CR>
 map <leader>[ :NERDTree %:p:h<CR>
-map <leader>] :NERDTreeClose<CR>
-map <Leader>nt :NERDTreeToggle<cr>
+map <leader>] :NERDTreeTabsClose<CR>
+map <Leader>nt :NERDTreeTabsToggle<cr>
 
 " Use Ack for Grep
 map <leader>g :Ack
