@@ -33,7 +33,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'plasticboy/vim-markdown'
-Plug 'sgur/vim-editorconfig'
 
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
