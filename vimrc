@@ -88,7 +88,7 @@ set secure
 
 " Enable syntax highlighting
 syntax on
-map <F9> :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif<CR>
+map <F9> :if exists("g:syntax_on") <Bar> syntax off<Bar>set nolist<Bar>set nonumber<Bar>set norelativenumber<Bar> else <Bar> syntax enable<Bar> set list <Bar> set number<Bar>set relativenumber<Bar> endif<CR>
 
 " Highlight current line
 set cursorline
