@@ -5,6 +5,7 @@
 " PlugUpgrade
 " PlugStatus
 call plug#begin('~/.vim/plugged')
+
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
@@ -18,17 +19,22 @@ Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
 Plug 'wookiehangover/jshint.vim'
 Plug 'bling/vim-airline'
+
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
+
+" Shortcuts
+" <leader>hs - stage hunk (or call GitGutterStageHunk)
+" <leader>hr - reset hunk (or call GitGutterRevertHunk)
 Plug 'airblade/vim-gitgutter'
+
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'schickling/vim-bufonly'
-Plug 'junegunn/seoul256.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-visual-star-search'
@@ -103,7 +109,8 @@ let g:seoul256_background = 233
 if has("gui_running")
 	let g:seoul256_background = 235
 endif
-colorscheme seoul256
+"colorscheme seoul256
+colorscheme cobalt2
 
 
 " Show “invisible” characters
