@@ -22,9 +22,16 @@ Plug 'bling/vim-airline'
 
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
+
 Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'vim-scripts/JavaScript-Indent'
+Plug 'othree/javascript-libraries-syntax.vim'
 
 " Shortcuts
 " <leader>hs - stage hunk (or call GitGutterStageHunk)
@@ -39,6 +46,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'plasticboy/vim-markdown'
+Plug 'cakebaker/scss-syntax.vim'
 
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
