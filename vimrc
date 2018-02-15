@@ -37,7 +37,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " <leader>hs - stage hunk (or call GitGutterStageHunk)
 " <leader>hr - reset hunk (or call GitGutterRevertHunk)
 Plug 'airblade/vim-gitgutter'
-
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
@@ -51,6 +50,8 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
+vmap <Enter> <Plug>(EasyAlign)
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
 
@@ -84,8 +85,6 @@ noremap <leader>sw :!find ~/.vim/swaps -name "*.sw*" -exec rm {} \;<CR>
 nmap <leader>v :set paste<CR>:r !pbpaste<CR>:set nopaste<CR>
 vmap <leader>x :w !pbcopy<CR><CR>
 
-vmap <Enter> <Plug>(EasyAlign)
-
 if exists("&undodir")
 	set undodir=~/.vim/undo
 endif
@@ -100,23 +99,17 @@ set modelines=4
 set exrc
 set secure
 
-" Enable syntax highlighting
-syntax on
+syntax on " Enable syntax highlighting
 map <F9> :if exists("g:syntax_on") <Bar> syntax off<Bar>set nolist<Bar>set nonumber<Bar>set norelativenumber<Bar> else <Bar> syntax enable<Bar> set list <Bar> set number<Bar>set relativenumber<Bar> endif<CR>
 
-" Highlight current line
-set cursorline
+set cursorline " Highlight current line
+set lsp=4      " number of pixel lines to use between characters
+set t_Co=256   " use 256 colors in vim
 
-" number of pixel lines to use between characters
-set lsp=4
-
-" use 256 colors in vim
-set t_Co=256
-
-let g:seoul256_background = 233
-if has("gui_running")
-	let g:seoul256_background = 235
-endif
+"let g:seoul256_background = 233
+"if has("gui_running")
+	"let g:seoul256_background = 235
+"endif
 "colorscheme seoul256
 colorscheme cobalt2
 
@@ -380,6 +373,8 @@ filetype on
 
 " fast autocompletion
 " http://stackoverflow.com/questions/2169645/vims-autocomplete-is-excruciatingly-slow
+set complete-=i
+
 set foldmethod=manual
 
 " autoswitch to paste mode
