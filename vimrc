@@ -30,10 +30,11 @@ let g:javascript_plugin_ngdoc = 1
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
 Plug 'jelera/vim-javascript-syntax'
-Plug 'vim-scripts/JavaScript-Indent'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 " Shortcuts
+" ]c - next hunk
+" [c - prev hunk
 " <leader>hs - stage hunk (or call GitGutterStageHunk)
 " <leader>hr - reset hunk (or call GitGutterRevertHunk)
 Plug 'airblade/vim-gitgutter'
@@ -157,6 +158,7 @@ highlight SignColumn ctermbg=black
 
 " [c prev, ]c next
 let g:gitgutter_max_signs=2500
+set updatetime=200
 
 "" airline settings
 " remove separators
