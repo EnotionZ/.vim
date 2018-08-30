@@ -148,7 +148,6 @@ if !exists(":W")
 endif
 
 
-
 " highlight anything over 80 column red
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " match OverLength /\%81v.\+/
@@ -156,9 +155,12 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=black
 highlight SignColumn ctermbg=black
 
+
+" Git Gutter Settings
 " [c prev, ]c next
 let g:gitgutter_max_signs=2500
-set updatetime=200
+autocmd BufWritePost * GitGutterAll
+
 
 "" airline settings
 " remove separators
