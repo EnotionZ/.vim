@@ -32,11 +32,6 @@ Plug 'groenewege/vim-less'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-" Shortcuts
-" ]c - next hunk
-" [c - prev hunk
-" <leader>hs - stage hunk (or call GitGutterStageHunk)
-" <leader>hr - reset hunk (or call GitGutterRevertHunk)
 Plug 'airblade/vim-gitgutter'
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
@@ -157,7 +152,12 @@ highlight SignColumn ctermbg=black
 
 
 " Git Gutter Settings
-" [c prev, ]c next
+" ]c - next hunk         ////  [c - prev hunk
+" [a - toggle highlights ///   ]a - stage hunk
+" <leader>hs - stage hunk (or call GitGutterStageHunk)
+" <leader>hr - reset hunk (or call GitGutterRevertHunk)
+map [a :GitGutterLineHighlightsToggle<CR>
+map ]a :GitGutterStageHunk<CR>
 let g:gitgutter_max_signs=2500
 autocmd BufWritePost * GitGutterAll
 
