@@ -17,9 +17,21 @@ Plug 'tpope/vim-haml'
 Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
-Plug 'wookiehangover/jshint.vim'
-Plug 'bling/vim-airline'
 
+Plug 'vim-syntastic/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_less_checkers=['less-lint']
+let g:syntastic_python_checkers = ['pylint']
+
+Plug 'bling/vim-airline'
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 
@@ -252,7 +264,6 @@ map <leader>g :Ack
 
 " Color chart http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "highlight Folded ctermfg=186 ctermbg=234
-highlight JSHintError ctermbg=238
 highlight DiffChange ctermbg=234 ctermfg=129
 highlight Diffadd ctermbg=234 ctermfg=46
 highlight Diffdelete ctermbg=234 ctermfg=9
@@ -349,11 +360,6 @@ set foldlevel=1
 " Reads json like JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_javascript_checkers=['jshint']
-let g:syntastic_less_checkers=['less-lint']
-let JSHintUpdateWriteOnly=1
 
 
 let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
