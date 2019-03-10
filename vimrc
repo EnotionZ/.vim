@@ -18,17 +18,6 @@ Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
 
-Plug 'vim-syntastic/syntastic'
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_java_checkers=['javac']
-let g:syntastic_javascript_checkers=['jshint']
-let g:syntastic_less_checkers=['less-lint']
-let g:syntastic_python_checkers = ['pylint']
-
 Plug 'bling/vim-airline'
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
@@ -56,6 +45,21 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
+
+Plug 'w0rp/ale'
+let b:ale_fixers = ['stylelint', 'eslint']
+
+"Plug 'vim-syntastic/syntastic'
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_java_checkers=['javac']
+"let g:syntastic_less_checkers=['less-lint']
+"let g:syntastic_python_checkers = ['pylint']
+"let g:syntastic_javascript_checkers = ['eslint']
+
 vmap <Enter> <Plug>(EasyAlign)
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
