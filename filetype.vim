@@ -6,10 +6,10 @@ au BufRead,BufNewFile *.less set ft=less
 au BufRead,BufNewFile *.dust set ft=dust
 au BufRead,BufNewFile *.html.erb set ft=rails_view
 
-au BufRead,BufNewFile *.html,*.jsp,*.dust,*.less setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
+au BufRead,BufNewFile *.html,*.jsp,*.dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
 au FileType mason,ruby,rails_view setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2
-au FileType css,less,scss,dust  setlocal foldmethod=indent expandtab shiftwidth=4 tabstop=4
+au FileType css,less,scss,dust  setlocal foldmethod=indent expandtab tabstop=2 shiftwidth=2
 
 " Autocompletion
 au FileType python set omnifunc=pythoncomplete#Complete

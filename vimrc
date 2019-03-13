@@ -31,7 +31,6 @@ Plug 'groenewege/vim-less'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 
-Plug 'airblade/vim-gitgutter'
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
@@ -49,16 +48,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'w0rp/ale'
 let b:ale_fixers = ['stylelint', 'eslint']
 
-"Plug 'vim-syntastic/syntastic'
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-"let g:syntastic_java_checkers=['javac']
-"let g:syntastic_less_checkers=['less-lint']
-"let g:syntastic_python_checkers = ['pylint']
-"let g:syntastic_javascript_checkers = ['eslint']
+Plug 'airblade/vim-gitgutter'
 
 vmap <Enter> <Plug>(EasyAlign)
 
