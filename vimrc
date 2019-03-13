@@ -22,13 +22,13 @@ Plug 'bling/vim-airline'
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 
+Plug 'othree/yajs.vim'
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'jnwhiteh/vim-golang'
@@ -187,8 +187,6 @@ let g:airline_section_y=""
 set maxmempattern=5000
 augroup TextFiles
 autocmd!
-" Turn off colors
-autocmd BufEnter *.txt syntax off
 " Check spelling
 " autocmd BufEnter *.txt,*.html,README set spell
 augroup END " TextFiles
@@ -355,6 +353,7 @@ autocmd BufNewFile,BufRead *.json set ft=javascript
 
 
 let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
+let g:NERDTreeNodeDelimiter = "\u00a0"
 
 function! s:StripWhitespace()
 	let save_cursor = getpos(".")
