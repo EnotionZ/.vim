@@ -7,8 +7,12 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'mileszs/ack.vim'
+
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
+let g:NERDTreeNodeDelimiter = "\u00a0"
+
 Plug 'scrooloose/nerdcommenter'
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
@@ -19,6 +23,20 @@ Plug 'tpope/vim-rails'
 Plug 'kchmck/vim-coffee-script'
 
 Plug 'bling/vim-airline'
+" remove separators
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+"let g:airline_theme='kolor'
+" set second section to filename
+"let g:airline_section_b="%f"
+" empty third and fourth sections
+"let g:airline_section_x=""
+let g:airline_section_c="%f"
+let g:airline_section_y=""
+
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 
@@ -49,6 +67,15 @@ Plug 'w0rp/ale'
 let b:ale_fixers = ['stylelint', 'eslint']
 
 Plug 'airblade/vim-gitgutter'
+" Git Gutter Settings
+" ]c - next hunk         ////  [c - prev hunk
+" [a - toggle highlights ///   ]a - stage hunk
+" <leader>hs - stage hunk (or call GitGutterStageHunk)
+" <leader>hr - reset hunk (or call GitGutterRevertHunk)
+map [a :GitGutterLineHighlightsToggle<CR>
+map ]a :GitGutterStageHunk<CR>
+let g:gitgutter_max_signs=2500
+autocmd BufWritePost * GitGutterAll
 
 vmap <Enter> <Plug>(EasyAlign)
 
@@ -155,32 +182,6 @@ highlight ColorColumn ctermbg=black
 highlight SignColumn ctermbg=black
 
 
-" Git Gutter Settings
-" ]c - next hunk         ////  [c - prev hunk
-" [a - toggle highlights ///   ]a - stage hunk
-" <leader>hs - stage hunk (or call GitGutterStageHunk)
-" <leader>hr - reset hunk (or call GitGutterRevertHunk)
-map [a :GitGutterLineHighlightsToggle<CR>
-map ]a :GitGutterStageHunk<CR>
-let g:gitgutter_max_signs=2500
-autocmd BufWritePost * GitGutterAll
-
-
-"" airline settings
-" remove separators
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#syntastic#enabled = 0
-let g:airline#extensions#ctrlp#show_adjacent_modes = 1
-"let g:airline_theme='kolor'
-" set second section to filename
-"let g:airline_section_b="%f"
-" empty third and fourth sections
-"let g:airline_section_x=""
-let g:airline_section_c="%f"
-let g:airline_section_y=""
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -194,8 +195,6 @@ augroup END " TextFiles
 
 
 filetype plugin indent on         " Turn on file type detection.
-
-
 
 
 " + and - in edit mode to change horizontal split width
@@ -237,6 +236,9 @@ map <leader>d :Gdiff<CR>
 map <leader>dg :diffget<CR>
 map <leader>dp :diffput<CR>
 
+" ALE shortcuts
+nmap <c-j> :ALENext<cr>
+nmap <c-k> :ALEPrevious<cr>
 
 " manually change to working directory
 map <leader>cd :cd %:p:h<CR>:NERDTree %:p:h<CR>:pwd<CR>
@@ -346,14 +348,9 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-
 " Reads json like JavaScript
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-
-
-let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
-let g:NERDTreeNodeDelimiter = "\u00a0"
 
 function! s:StripWhitespace()
 	let save_cursor = getpos(".")
