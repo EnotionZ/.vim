@@ -5,6 +5,7 @@ au BufRead,BufNewFile *.scss set ft=scss
 au BufRead,BufNewFile *.less set ft=less
 au BufRead,BufNewFile *.dust set ft=dust
 au BufRead,BufNewFile *.html.erb set ft=rails_view
+au BufRead,BufNewFile *.json set ft=javascript
 
 au BufRead,BufNewFile *.html,*.jsp,*.dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 

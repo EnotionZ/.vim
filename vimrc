@@ -65,6 +65,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'w0rp/ale'
 let b:ale_fixers = ['stylelint', 'eslint']
+let g:ale_sign_column_always = 1
 
 Plug 'airblade/vim-gitgutter'
 " Git Gutter Settings
@@ -144,7 +145,7 @@ colorscheme cobalt2
 " Show “invisible” characters
 " set listchars=tab:>-,extends:>,precedes:<
 " set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set lcs=tab:.\ ,trail:·
+set lcs=tab:»\ ,trail:·
 set list
 
 " Enable mouse in insert mode
@@ -348,10 +349,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 
-" Reads json like JavaScript
-autocmd BufNewFile,BufRead *.json set ft=javascript
-
-
 function! s:StripWhitespace()
 	let save_cursor = getpos(".")
 	let old_query = getreg('/')
@@ -384,3 +381,26 @@ function! XTermPasteBegin()
 	set paste
 	return ""
 endfunction
+
+
+" toggles numbers and special characters to copy
+let t:cpToggle = 0
+function! CopyModeToggle()
+	if !exists("t:cpToggle") || t:cpToggle is 0
+		set nolist
+		set nonumber
+		set norelativenumber
+		let t:cpToggle = 1
+		call g:NERDTree.Close()
+		call gitgutter#disable()
+		call ale#toggle#Disable()
+	else
+		set lcs=tab:»\ ,trail:·
+		set list
+		set relativenumber
+		let t:cpToggle = 0
+		call gitgutter#enable()
+		call ale#toggle#Enable()
+	endif
+endfunction
+command! -bar CopyModeToggle call CopyModeToggle()
