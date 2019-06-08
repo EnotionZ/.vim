@@ -160,11 +160,23 @@ set ruler
 set shortmess=atI
 
 " Enable line numbers & relative line numbers
+function! EnableRelativeNumber()
+    set relativenumber
+    au BufReadPost * set relativenumber
+    au InsertEnter * set number
+    au InsertLeave * set relativenumber
+endfunction
+
+function! DisableRelativeNumber()
+    set nonumber
+    set norelativenumber
+    au InsertEnter * set nonumber
+    au InsertLeave * set norelativenumber
+    au BufReadPost * set norelativenumber
+endfunction
+
 if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-	au InsertEnter * set number
-	au InsertLeave * set relativenumber
+	call EnableRelativeNumber()
 endif
 
 inoremap jj <ESC>
@@ -350,11 +362,11 @@ set nofoldenable
 set foldlevel=1
 
 function! s:StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    :%s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
 endfunction
 " Strip trailing whitespace (/ss)
 noremap <leader>ws :call <SID>StripWhitespace()<CR>
@@ -377,30 +389,41 @@ let &t_SI .= "\<Esc>[?2004h"
 let &t_EI .= "\<Esc>[?2004l"
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 function! XTermPasteBegin()
-	set pastetoggle=<Esc>[201~
-	set paste
-	return ""
+    set pastetoggle=<Esc>[201~
+    set paste
+    return ""
 endfunction
 
 
 " toggles numbers and special characters to copy
-let t:cpToggle = 0
 function! CopyModeToggle()
-	if !exists("t:cpToggle") || t:cpToggle is 0
-		set nolist
-		set nonumber
-		set norelativenumber
-		let t:cpToggle = 1
-		call g:NERDTree.Close()
-		call gitgutter#disable()
-		call ale#toggle#Disable()
-	else
-		set lcs=tab:»\ ,trail:·
-		set list
-		set relativenumber
-		let t:cpToggle = 0
-		call gitgutter#enable()
-		call ale#toggle#Enable()
-	endif
+    if !exists("t:cpToggle") || t:cpToggle is 0
+        set nolist
+        let t:cpToggle = 1
+        let g:ale_sign_column_always = 0
+        call DisableRelativeNumber()
+        call g:NERDTree.Close()
+        call gitgutter#disable()
+        call ale#toggle#Disable()
+    else
+        set lcs=tab:»\ ,trail:·
+        set list
+        let t:cpToggle = 0
+        let g:ale_sign_column_always = 1
+        call EnableRelativeNumber()
+        call gitgutter#enable()
+        call ale#toggle#Enable()
+    endif
 endfunction
 command! -bar CopyModeToggle call CopyModeToggle()
+
+function! s:goyo_enter()
+    call DisableRelativeNumber()
+endfunction
+
+function! s:goyo_leave()
+    call EnableRelativeNumber()
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
