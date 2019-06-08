@@ -60,6 +60,11 @@ Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 
 Plug 'junegunn/limelight.vim'
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_conceal_guifg = '#777777'
+let g:limelight_paragraph_span = 0
+let g:limelight_priority = -1
+
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 
@@ -427,3 +432,5 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
