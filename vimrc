@@ -68,7 +68,7 @@ let g:limelight_priority = -1
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 let b:ale_fixers = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
@@ -82,8 +82,8 @@ Plug 'airblade/vim-gitgutter'
 " [a - toggle highlights ///   ]a - stage hunk
 " <leader>hs - stage hunk (or call GitGutterStageHunk)
 " <leader>hr - reset hunk (or call GitGutterRevertHunk)
-nmap <C-G>n <Plug>(GitGutterNextHunk)
-nmap <C-G>p <Plug>(GitGutterPrevHunk)
+nmap <C-G>j <Plug>(GitGutterNextHunk)
+nmap <C-G>k <Plug>(GitGutterPrevHunk)
 map [a :GitGutterLineHighlightsToggle<CR>
 map ]a :GitGutterStageHunk<CR>
 let g:gitgutter_max_signs=2500
