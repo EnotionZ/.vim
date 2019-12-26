@@ -71,13 +71,19 @@ Plug 'junegunn/vim-easy-align'
 Plug 'w0rp/ale'
 let b:ale_fixers = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 
 Plug 'airblade/vim-gitgutter'
 " Git Gutter Settings
-" ]c - next hunk         ////  [c - prev hunk
+" ]c or CtrlGn  - next hunk         ////  [c - prev hunk
 " [a - toggle highlights ///   ]a - stage hunk
 " <leader>hs - stage hunk (or call GitGutterStageHunk)
 " <leader>hr - reset hunk (or call GitGutterRevertHunk)
+nmap <C-G>n <Plug>(GitGutterNextHunk)
+nmap <C-G>p <Plug>(GitGutterPrevHunk)
 map [a :GitGutterLineHighlightsToggle<CR>
 map ]a :GitGutterStageHunk<CR>
 let g:gitgutter_max_signs=2500
@@ -354,7 +360,7 @@ map <Leader>r :CtrlPMRU<cr>
 "map <Leader>o :CtrlPBuffer<CR>
 
 " ignore
-set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*
+set wildignore+=node_modules,bower_components,*/public/components/*,*/cache/*,dist
 
 " Remove all files in buffer
 map <Leader>e :BufOnly<CR> :tabo<CR>
