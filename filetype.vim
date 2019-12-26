@@ -9,6 +9,7 @@ au BufRead,BufNewFile *.json set ft=javascript
 
 au BufRead,BufNewFile *.html,*.jsp,*.dust setlocal autoindent tabstop=4 shiftwidth=4 softtabstop=0 noexpandtab
 
+au FileType c setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2
 au FileType mason,ruby,rails_view setlocal foldmethod=syntax expandtab tabstop=2 shiftwidth=2
 au FileType css,less,scss,dust  setlocal foldmethod=indent expandtab tabstop=2 shiftwidth=2
 

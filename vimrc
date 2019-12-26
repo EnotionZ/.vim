@@ -142,8 +142,11 @@ syntax on " Enable syntax highlighting
 map <F9> :if exists("g:syntax_on") <Bar> syntax off<Bar>set nolist<Bar>set nonumber<Bar>set norelativenumber<Bar> else <Bar> syntax enable<Bar> set list <Bar> set number<Bar>set relativenumber<Bar> endif<CR>
 
 set cursorline " Highlight current line
+hi CursorLine ctermbg=237
 set lsp=4      " number of pixel lines to use between characters
 set t_Co=256   " use 256 colors in vim
+set cursorcolumn
+hi CursorLine ctermbg=237
 
 "let g:seoul256_background = 233
 "if has("gui_running")
