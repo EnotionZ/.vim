@@ -14,6 +14,9 @@ let NERDTreeIgnore = ['\.pyc$','cache$','node_modules$']
 let g:NERDTreeNodeDelimiter = "\u00a0"
 
 Plug 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-fugitive'
@@ -69,12 +72,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/vim-easy-align'
 
 Plug 'dense-analysis/ale'
-let b:ale_fixers = ['stylelint', 'eslint']
+let b:ale_linters = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+hi ALEError ctermbg=Black ctermfg=Red
+hi ALEErrorSign ctermbg=NONE ctermfg=red
+hi ALEWarningSign ctermbg=NONE ctermfg=yellow
+hi Error ctermfg=Black guifg=Black ctermbg=Red guibg=Red
 
 Plug 'airblade/vim-gitgutter'
 " Git Gutter Settings
