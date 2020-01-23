@@ -436,15 +436,16 @@ function! CopyModeToggle()
 endfunction
 command! -bar CopyModeToggle call CopyModeToggle()
 
+" https://github.com/junegunn/goyo.vim - distraction-free writing
 function! s:goyo_enter()
     call DisableRelativeNumber()
+    Limelight
 endfunction
 
 function! s:goyo_leave()
     call EnableRelativeNumber()
+    Limelight!
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
