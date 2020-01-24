@@ -57,9 +57,7 @@ Plug 'jimmyhchan/dustjs.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'schickling/vim-bufonly'
 Plug 'vim-ruby/vim-ruby'
-Plug 'suan/vim-instant-markdown'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'plasticboy/vim-markdown'
 Plug 'cakebaker/scss-syntax.vim'
 
 Plug 'junegunn/limelight.vim'
@@ -98,6 +96,8 @@ vmap <Enter> <Plug>(EasyAlign)
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 call plug#end()
+
+let g:markdown_fenced_languages = ['html', 'css', 'python', 'javascript', 'ruby', 'bash=sh']
 
 " Use Node.js for JavaScript interpretation
 " let $JS_CMD='node'
