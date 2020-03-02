@@ -48,6 +48,7 @@ Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
+Plug 'leafgarland/typescript-vim'
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -158,7 +159,8 @@ hi CursorLine ctermbg=237
 	"let g:seoul256_background = 235
 "endif
 "colorscheme seoul256
-colorscheme cobalt2
+"colorscheme cobalt2
+colorscheme brogrammer
 
 
 " Show “invisible” characters
@@ -337,10 +339,10 @@ set copyindent
 "set shiftwidth=2                 " And again, related.
 "set expandtab                    " Use spaces instead of tabs
 
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set softtabstop=0
-set noexpandtab
+set expandtab
 
 "Set tab autoindent
 " http://vim.wikia.com/wiki/Indenting_source_code
@@ -449,3 +451,4 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+com! FormatJSON %!python -m json.tool
