@@ -17,6 +17,10 @@ Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'tpope/vim-fugitive'
@@ -55,7 +59,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 
 Plug 'jnwhiteh/vim-golang'
 Plug 'jimmyhchan/dustjs.vim'
-Plug 'flazz/vim-colorschemes'
 Plug 'schickling/vim-bufonly'
 Plug 'vim-ruby/vim-ruby'
 Plug 'nelstrom/vim-visual-star-search'
