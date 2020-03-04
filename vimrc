@@ -150,6 +150,11 @@ set secure
 syntax on " Enable syntax highlighting
 map <F9> :if exists("g:syntax_on") <Bar> syntax off<Bar>set nolist<Bar>set nonumber<Bar>set norelativenumber<Bar> else <Bar> syntax enable<Bar> set list <Bar> set number<Bar>set relativenumber<Bar> endif<CR>
 
+nnoremap j gj
+nnoremap gj j
+nnoremap k gk
+nnoremap gk k
+
 set cursorline " Highlight current line
 hi CursorLine ctermbg=237
 set lsp=4      " number of pixel lines to use between characters
