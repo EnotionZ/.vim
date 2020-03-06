@@ -20,6 +20,10 @@ let g:NERDDefaultAlign = 'left'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" line wrap text width
+let g:prettier#config#print_width = 120
+" Overwrite default prettier configuration
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
