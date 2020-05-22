@@ -22,8 +22,9 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 " line wrap text width
 let g:prettier#config#print_width = 120
+let g:prettier#autoformat = 0
 " Overwrite default prettier configuration
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
@@ -82,10 +83,13 @@ let b:ale_linters = ['stylelint', 'eslint']
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-hi ALEError ctermbg=Black ctermfg=Red
+let g:ale_set_highlights = 1
+hi ALEError ctermbg=236
+hi ALEWarning ctermbg=237
 hi ALEErrorSign ctermbg=NONE ctermfg=red
 hi ALEWarningSign ctermbg=NONE ctermfg=yellow
-hi Error ctermfg=Black guifg=Black ctermbg=Red guibg=Red
+hi ALEErrorLine ctermbg=238 ctermfg=None
+hi Error ctermbg=236 ctermfg=None guifg=black guibg=red
 
 Plug 'airblade/vim-gitgutter'
 " Git Gutter Settings
