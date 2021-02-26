@@ -17,23 +17,10 @@ Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
-" Plug 'prettier/vim-prettier', {
-  " \ 'do': 'yarn install',
-  " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-" line wrap text width
-"let g:prettier#config#print_width = 120
-"let g:prettier#exec_cmd_async = 1
-"let g:prettier#autoformat = 0
-" Overwrite default prettier configuration
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 Plug 'ervandew/supertab'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-haml'
-Plug 'nono/vim-handlebars'
 Plug 'tpope/vim-rails'
-Plug 'kchmck/vim-coffee-script'
 
 Plug 'bling/vim-airline'
 " remove separators
@@ -60,6 +47,7 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
 Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 Plug 'mxw/vim-jsx'
 Plug 'groenewege/vim-less'
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -87,6 +75,7 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 let g:ale_set_highlights = 1
+let g:ale_lint_on_save = 1
 hi ALEError ctermbg=236
 hi ALEWarning ctermbg=237
 hi ALEErrorSign ctermbg=NONE ctermfg=red
@@ -95,17 +84,19 @@ hi ALEErrorLine ctermbg=238 ctermfg=None
 hi Error ctermbg=236 ctermfg=None guifg=black guibg=red
 
 Plug 'airblade/vim-gitgutter'
-" Git Gutter Settings
-" ]c or CtrlGn  - next hunk         ////  [c - prev hunk
-" [a - toggle highlights ///   ]a - stage hunk
-" <leader>hs - stage hunk (or call GitGutterStageHunk)
-" <leader>hr - reset hunk (or call GitGutterRevertHunk)
 nmap <C-G>j <Plug>(GitGutterNextHunk)
 nmap <C-G>k <Plug>(GitGutterPrevHunk)
-map [a :GitGutterLineHighlightsToggle<CR>
-map ]a :GitGutterStageHunk<CR>
+nmap <C-G>h <Plug>(GitGutterLineHighlightsToggle)
+nmap <C-G>i <Plug>(GitGutterStageHunk)
+nmap <C-G>u <Plug>(GitGutterUndoHunk)
 let g:gitgutter_max_signs=2500
 autocmd BufWritePost * GitGutterAll
+
+Plug 'tpope/vim-fugitive'
+nmap <C-G>s :Gstatus<CR>
+nmap <C-G>d :Gdiff<CR>
+nmap <C-G>g :diffget<CR>
+nmap <C-G>p :diffput<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 
@@ -133,8 +124,6 @@ set ttyfast
 set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
-" Change mapleader
-"let mapleader=","
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -282,12 +271,6 @@ imap <C-X> <del>
 
 nmap <c-l> :noh<CR>
 imap <c-l> <Esc>:noh<CR>o
-
-" Fugitive shortcuts
-map <leader>s :Gstatus<CR>
-map <leader>d :Gdiff<CR>
-map <leader>dg :diffget<CR>
-map <leader>dp :diffput<CR>
 
 " ALE shortcuts
 nmap <c-j> :ALENext<cr>
