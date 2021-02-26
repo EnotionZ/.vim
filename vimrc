@@ -17,12 +17,13 @@ Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
 
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+  " \ 'do': 'yarn install',
+  " \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 " line wrap text width
-let g:prettier#config#print_width = 120
-let g:prettier#autoformat = 0
+"let g:prettier#config#print_width = 120
+"let g:prettier#exec_cmd_async = 1
+"let g:prettier#autoformat = 0
 " Overwrite default prettier configuration
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
@@ -41,6 +42,7 @@ let g:airline_right_sep=''
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#ctrlp#show_adjacent_modes = 1
+let g:airline#extensions#ale#enabled = 1
 "let g:airline_theme='kolor'
 " set second section to filename
 "let g:airline_section_b="%f"
@@ -80,6 +82,7 @@ Plug 'junegunn/vim-easy-align'
 
 Plug 'dense-analysis/ale'
 let b:ale_linters = ['stylelint', 'eslint']
+let g:ale_fixers = ['prettier']
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
