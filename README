@@ -1,6 +1,0 @@
-%: cd ~
-%: rm -rf .vim
-%: git clone https://github.com/EnotionZ/.vim.git
-%: ln -s ~/.vim/vimrc .vimrc
-
-or just pick out the bundles or vimrc individually
