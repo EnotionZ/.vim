@@ -95,8 +95,9 @@ autocmd BufWritePost * GitGutterAll
 Plug 'tpope/vim-fugitive'
 nmap <C-G>s :Gstatus<CR>
 nmap <C-G>d :Gdiff<CR>
-nmap <C-G>g :diffget<CR>
+nmap <C-G>y :diffget<CR>
 nmap <C-G>p :diffput<CR>
+nmap <leader>d :Git difftool<CR>
 
 vmap <Enter> <Plug>(EasyAlign)
 

@@ -24,10 +24,16 @@
 * `ctrl+g u` - undo hunk
 
 **vim-fugitive**
-* `ctrl+g s` - Git status
+* `<leader>d` - Git difftool
 * `ctrl+g d` - Git diff
 * `ctrl+g y` - diff get/yank (in diff mode)
 * `ctrl+g p` - diff put (in diff mode)
+
+* `ctrl+g s` - Git status
+* `s` - stage
+* `u` - unstage
+* `-` - stage or unstage
+* `U` - unstage everything
 
 **ALE**
 * `ctrl+j` - Next error
